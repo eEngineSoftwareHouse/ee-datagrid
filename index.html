@@ -222,6 +222,35 @@ interface DataGrid
         <a target="_blank" href="https://pastebin.com/j5KCPctq">tutaj (json)</a>.
     </p>
 
+    <p>
+        Użycie biblioteki (index.php):
+    </p>
+
+    <pre>
+<code class="php">
+&lt;?php
+
+$rows = json_decode(file_get_content("data.json"), true);
+$state = HttpState::create(); // instanceof State, dane powinny zostać pobrane z $_GET
+
+$dataGrid = new HtmlDataGrid(); // instanceof DataGrid
+$config = (new DefaultConfig) // instanceof Config, z dodatkowymi metodami
+    ->addIntColumn('id')
+    ->addTextColumn('name')
+    ->addIntColumn('age')
+    ->addTextColumn('company')
+    ->addCurrencyColumn('balance', 'USD')
+    ->addTextColumn('phone')
+    ->addTextColumn('email');
+
+echo $dataGrid->withConfig($config)->render($rows, $state);
+</code>
+    </pre>
+
+    <p>
+        Efekt widoczny dla użytkownika:
+    </p>
+
     <div class="col-sm-12">
         <table class="table table-bordered">
             <thead>
