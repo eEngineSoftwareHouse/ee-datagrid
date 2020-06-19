@@ -16,27 +16,36 @@
 
     <p>
         Celem zadania jest wykonanie implementacji, wcześniej zaprojektowanej biblioteki do tworzenia DataGrid.
-        DataGrid powinien renderować się w HTML i korzystać z klass CSS dostępnych w frameworku Bootstrap 3.
+        DataGrid powinien renderować się w HTML i korzystać z klass CSS dostępnych w frameworku Bootstrap 4.
         Projekt musi działać na PHP 7.3 lub 7.4.
     </p>
     <p>
-        DataGrid ma za zadanie przedstawiać surowe dane, dostarczone w tablicy PHP, w postaci automatycznie formatowanej
-        tabeli HTML. Tabela ma klikalne nagłówki kolumn. Kliknięcie takiego nagłówka, powoduje posortowanie wierszy rosnąco.
+        1. DataGrid ma za zadanie przedstawiać surowe dane, dostarczone w tablicy PHP, w postaci automatycznie formatowanej
+        tabeli HTML.
+    </p>
+    <p>
+        2. Tabela ma klikalne nagłówki kolumn. Kliknięcie takiego nagłówka, powoduje posortowanie wierszy rosnąco.
         Kolejne kliknięcia zmieniają sortowanie na malejące, a następne wyłączają sortowanie.
-        Ilość wyświetlanych wierszy jest ograniczona. Pod tabelą znajduje się pagniacja.
-        Klikanie w poszczególne strony pagniacji, powduje przejścia na te strony.
+    </p>
+    <p>
+        3. Ilość wyświetlanych wierszy jest ograniczona do 9 na stronę.
+    </p>
+    <p>
+        4. Pod tabelą renderuje się paginacja. Klikanie w poszczególne strony pagniacji, powduje przejścia na te strony.
     </p>
 
     <h3>Zasady oceniania projektu</h3>
 
     <p>
-        Warunki konieczne muszą zostać spełnione.
-        Drobne niedociągnięcia w pozostałych, będą skutkowały obniżeniemi liości punktów o połowę.
+        Warunki konieczne - muszą zostać spełnione. Bez tego nie będziemy mogli ocenić projektu. Wszystko
+        oznaczone jako "mile widziane", nie jest konieczne, ale może mieć wpływ na ocene końcową
+        (jeżeli podstawowe elementy będą miały braki). Natomiast elementy o wadze "Extra", wymagające konkretnej
+        wiedzy i umiejętności, będą miały bardzo duży wpływ na ocenę końcową.
     </p>
 
     <p>
-        W każdy miejscu gdzie mowa o "błędach" - mam na myśli o notice, warning, error i critical error w PHP.
-        Nie należy tych błędów mylić, z komunikatami o błędach pokazywanymi użytkownikowi - te są mile widziane.
+        W każdy miejscu gdzie mowa o "błędach", mamy na myśli: notice, warning, error i critical error w PHP.
+        Nie należy tych błędów mylić, z komunikatami UI dla użytkownika - te są mile widziane.
     </p>
 
     <table class="table">
@@ -44,12 +53,25 @@
         <tr>
             <th>L.p.</th>
             <th>Opis</th>
-            <th>Punkty</th>
+            <th>Waga</th>
         </tr>
         </thead>
         <tbody>
-        <tr><td>1.</td><td>Uruchomienie kodu nie powoduje błędów na PHP 7.3 lub 7.4</td><td>Warunek konieczny</td><tr><tr><td>2.</td><td>Implementacja podstawego interfejsu biblioteki</td><td>Warunek konieczny</td><tr><tr><td>3.</td><td>Formatowanie kodu zgodne z PSR-12</td><td>0 / 500 / 1000 pkt</td><tr><tr><td>4.</td><td>Ogólna czytelnośc i ekspresyjność kodu</td><td>0 / 500 / 1000 pkt</td><tr><tr><td>5.</td><td>Przestrzeganie zasady DRY (szczególnie DateType)</td><td>0 / 350 / 700 pkt</td><tr><tr><td>6.</td><td>Przestrzeganie zasad SOLID</td><td>0 / 500 / 1000 pkt</td><tr><tr><td>7.</td><td>Przestrzeganie zasad enkapsulacji, ukrywanie szczegółów implementacji</td><td>0 / 250 / 500 pkt</td><tr><tr><td>8.</td><td>W miejsce zwykłego dziedziczenia, użyte dziedzicenie przez kompozycję</td><td>0 / 1000 pkt</td><tr><tr><td>9.</td><td>Biblioteka korzysta tylko i wyłącznie z obiektów Immutable</td><td>0 / 500 / 1000 pkt</td><tr><tr><td>10.</td><td>Użycie silnego typowania, wszędzie gdzie być powinno</td><td>0 / 250 / 500 pkt</td><tr><tr><td>11.</td><td>MoneyType - poprawnie działająca waluta PLN i USD</td><td>-500 / 300 pkt</td><tr><tr><td>12.</td><td>MoneyType - poprawnie działająca waluta BHD</td><td>0 / 500 pkt</td><tr><tr><td>13.</td><td>Render - brakujące komórki w wierszach nie powodują błędów</td><td>-500 / 200 pkt</td><tr><tr><td>14.</td><td>Render - losowe ciągi znaków w komórkach nie powodują błędów</td><td>-500 / 200 pkt</td><tr><tr><td>15.</td><td>Render - losowe typy danych w komórkach nie powodują błędów</td><td>-500  / 200 pkt</td><tr><tr><td>16.</td><td>Render - mimo braku błędów, użytkownik widzi gdzie zostały wprowadzone błędne dane</td><td>0 / 750 pkt</td><tr><tr><td>17.</td><td>Działająca paginacja</td><td>-1000 / 1000 pkt</td><tr><tr><td>18.</td><td>Działająca pagniacja łącznie z sortowaniem</td><td>-250 / 500 pkt</td><tr><tr><td>19.</td><td>Ikona sortowania w nagłówku pokazująca kierunek sortowania</td><td>0 / 350 pkt</td><tr><tr><td>20.</td><td>Klikanie w kolumny powoduje sortowanie naprzemienie:  ASC / DESC / wyłączenie sortowania</td><td>0 / 750 pkt</td><tr><tr><td>21.</td><td>Sortowanie uwzględa różne mechanizmy sortowania w zależności od typu danych</td><td>0 / 1000 pkt</td><tr><tr><td>22.</td><td>Paginacja - obsłużenie sytuacji, w której użytkownik chciałby wyrenderować stronę która jest poza dostępnym zakresem</td><td>-500 / 100 pkt</td><tr><tr><td>23.</td><td>Użycie nonbraking space w formatowaniu typów</td><td>0 / 100 pkt</td><tr><tr><td>24.</td><td>Testy jednostkowe</td><td>do 2000 pkt</td><tr><tr><td>25.</td><td>Stworzenie dodatkowej implementacji interfejsu DataGrid dla CLI</td><td>do 4000 pkt</td><tr>        </tbody>
+        <tr><td>1.</td><td>Uruchomienie kodu nie powoduje błędów na PHP 7.3 lub 7.4</td><td>Warunek konieczny</td><tr><tr><td>2.</td><td>Implementacja podstawego interfejsu biblioteki</td><td>Warunek konieczny</td><tr><tr><td>3.</td><td>Formatowanie kodu zgodne z PSR-12</td><td>Mile widziane</td><tr><tr><td>4.</td><td>Ogólna czytelnośc i ekspresyjność kodu</td><td>80%</td><tr><tr><td>5.</td><td>Przestrzeganie zasady DRY (szczególnie DateType)</td><td>80%</td><tr><tr><td>6.</td><td>Przestrzeganie zasad SOLID</td><td>Exra</td><tr><tr><td>7.</td><td>Przestrzeganie zasad enkapsulacji, ukrywanie szczegółów implementacji</td><td>Mile widziane</td><tr><tr><td>8.</td><td>W miejsce zwykłego dziedziczenia, użyte dziedzicenie przez kompozycję</td><td>Extra</td><tr><tr><td>9.</td><td>Biblioteka korzysta tylko i wyłącznie z obiektów Immutable</td><td>Extra</td><tr><tr><td>10.</td><td>Użycie silnego typowania, wszędzie gdzie być powinno</td><td>80%</td><tr><tr><td>11.</td><td>MoneyType - poprawnie działająca waluta PLN i USD</td><td>100%</td><tr><tr><td>12.</td><td>MoneyType - poprawnie działająca waluta BHD</td><td>70%</td><tr><tr><td>13.</td><td>Render - brakujące komórki w wierszach nie powodują błędów</td><td>70%</td><tr><tr><td>14.</td><td>Render - losowe ciągi znaków w komórkach nie powodują błędów</td><td>70%</td><tr><tr><td>15.</td><td>Render - losowe typy danych w komórkach nie powodują błędów</td><td>70%</td><tr><tr><td>16.</td><td>Render - mimo braku błędów, użytkownik widzi gdzie zostały wprowadzone błędne dane</td><td>60%</td><tr><tr><td>17.</td><td>Działająca pagniacja łącznie z sortowaniem</td><td>100%</td><tr><tr><td>18.</td><td>Ikona sortowania w nagłówku pokazująca kierunek sortowania</td><td>80%</td><tr><tr><td>19.</td><td>Klikanie w kolumny powoduje sortowanie naprzemienie:  ASC / DESC / wyłączenie sortowania</td><td>80%</td><tr><tr><td>20.</td><td>Sortowanie uwzględa różne mechanizmy sortowania w zależności od typu danych</td><td>50%</td><tr><tr><td>21.</td><td>Paginacja - obsłużenie sytuacji, w której użytkownik chciałby wyrenderować stronę która jest poza dostępnym zakresem</td><td>50%</td><tr><tr><td>22.</td><td>Użycie nonbraking space w formatowaniu typów</td><td>30%</td><tr><tr><td>23.</td><td>Testy jednostkowe</td><td>Mile widziane</td><tr><tr><td>24.</td><td>Docker + docker-compose.yaml</td><td>Mile widziane</td><tr><tr><td>25.</td><td>Projekt wrzucony na serwer, podpięty do domeny</td><td>Extra</td><tr>        </tbody>
     </table>
+
+    <h3>Jak powinno wyglądać ukończone zadanie?</h3>
+
+    <p>
+        Kod źródłowy powinien zostać wrzucony na repozytorium GitHub. Oprócz kodu biblioteki, musi zostać dołączony
+        plik JSON z danymi, oraz index.php renderujący w pełni działający przykład z końca tego pliku. Kod
+        powinien używać autoloadera z composera.
+    </p>
+
+    <p>
+        Jeżeli istnieje taka możliwość, to kod dodatkowo powinien zostać wrzucony na serwer, a adres serwera
+        przesłany razem z linkiem do repozytorium.
+    </p>
 
     <h2>1. Podstawowy interfejs biblioteki</h2>
 
@@ -138,13 +160,9 @@ interface DataGrid
     public function withConfig(Config $config): DataGrid;
 
     /**
-     * Ustawia dane, które mają zostać wyświetlone na ekranie.
-     */
-    public function withData(array $data): DataGrid;
-
-    /**
      * Renderuje na ekran kod, który ma za zadanie wyświetlić przygotowany DataGrid.
-     * Jako parametr przyjmuje: wszystkie dostępne dane, oraz aktualny stan DataGrid w formie obiektu.
+     * Jako parametr przyjmuje: wszystkie dostępne dane, oraz aktualny stan DataGrid w formie obiektu - State.
+     * Na podstawie State, metoda ma za zadanie posortować wiersze oraz podzielić je na strony.
      */
     public function render(array $rows, State $state): void;
 }
@@ -200,7 +218,8 @@ interface DataGrid
     <h2>3. Przykład</h2>
 
     <p>
-        <a href="https://pastebin.com/j5KCPctq">Data set, który ma zostać wykorzystany w przykładzie (JSON).</a>
+        Data set, który ma zostać wykorzystany w przykładzie do pobrania
+        <a target="_blank" href="https://pastebin.com/j5KCPctq">tutaj (json)</a>.
     </p>
 
     <div class="col-sm-12">
@@ -235,7 +254,6 @@ interface DataGrid
             </ul>
         </nav>
     </div>
-
 
     <script>hljs.initHighlightingOnLoad();</script>
 </div>
