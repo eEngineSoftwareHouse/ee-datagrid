@@ -1,4 +1,5 @@
 
+
 <html lang="pl">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -7,6 +8,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
     <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/languages/php.min.js"></script>
     <title>DataGrid</title>
+    <style>
+        .example {
+            padding-left: 25px;
+            padding-right: 25px;
+            border: 1px dotted gray;
+            padding-top: 25px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -14,66 +25,141 @@
         DataGrid
     </h1>
 
-    <p>
-        Celem zadania jest wykonanie implementacji, wcześniej zaprojektowanej biblioteki do tworzenia DataGrid.
-        DataGrid powinien renderować się w HTML i korzystać z klass CSS dostępnych w frameworku Bootstrap 4.
-        Projekt musi działać na PHP 7.3 lub 7.4.
-    </p>
-    <p>
-        1. DataGrid ma za zadanie przedstawiać surowe dane, dostarczone w tablicy PHP, w postaci automatycznie formatowanej
-        tabeli HTML.
-    </p>
-    <p>
-        2. Tabela ma klikalne nagłówki kolumn. Kliknięcie takiego nagłówka, powoduje posortowanie wierszy rosnąco.
-        Kolejne kliknięcia zmieniają sortowanie na malejące, a następne wyłączają sortowanie.
-    </p>
-    <p>
-        3. Ilość wyświetlanych wierszy jest ograniczona do 9 na stronę.
-    </p>
-    <p>
-        4. Pod tabelą renderuje się paginacja. Klikanie w poszczególne strony pagniacji, powduje przejścia na te strony.
+    <p class="lead">
+        Celem zadania będzie stworzenie biblioteki, która pozwoli na łatwe formatowanie i renderowanie tabel z danymi.
+        Elementem wejściowym będą surowe dane w postaci tablicy PHP, a wyjściowym kod HTML korzystający z klas
+        frameworka CSS Boostrap.
     </p>
 
-    <h3>Zasady oceniania projektu</h3>
+    <h3>Co będzie potrzebne?</h3>
+
+    <ul>
+        <li>PHP 7.3 lub 7.4</li>
+        <li>Znajomość PHP i HTML</li>
+        <li>
+            Podstawoa znajomość frameworka CSS
+            <a href="https://getbootstrap.com/" target="_blank">
+                Boostrap 4
+            </a>
+        </li>
+        <li>
+            <a href="https://www.php-fig.org/psr/psr-12" target="_blank">Znajomośc PSR-12: Extended Coding Style</a>
+        </li>
+        <li>
+            Znajomość zasad pisania czystego kodu -
+            <a href="https://helion.pl/ksiazki/czysty-kod-podrecznik-dobrego-programisty-robert-c-martin,czykov.htm#format/d" target="_blank">
+                Robert C. Martin, Czysty kod. Podręcznik dobrego programisty
+            </a>
+        </li>
+        <li>
+            <a href="https://sniacnajavie.pl/solid-kiss-dry-zasady-programowania/" target="_blank">
+                Znajomośc uniwersalnych zasad programowania - SOLID, KISS, DRY
+            </a>
+        </li>
+    </ul>
+
+    <h3>Zwiększ poziom trudności</h3>
 
     <p>
-        Warunki konieczne - muszą zostać spełnione. Bez tego nie będziemy mogli ocenić projektu. Wszystko
-        oznaczone jako "mile widziane", nie jest konieczne, ale może mieć wpływ na ocene końcową
-        (jeżeli podstawowe elementy będą miały braki). Natomiast elementy o wadze "Extra", wymagające konkretnej
-        wiedzy i umiejętności, będą miały bardzo duży wpływ na ocenę końcową.
+        Jeżeli czujesz się na siłach, możesz zwiększyć poziom trudności i dołożyć jeszcze kilka warunków:
     </p>
 
-    <p>
-        W każdy miejscu gdzie mowa o "błędach", mamy na myśli: notice, warning, error i critical error w PHP.
-        Nie należy tych błędów mylić, z komunikatami UI dla użytkownika - te są mile widziane.
-    </p>
+    <ul>
+        <li>
+            <a href="https://rafalstepien.com/czym-niezmiennosc-immutability-obiektow-warto-niej-korzystac/" target="_blank">
+                Wszystkie stworzone obiekty w bibliotece zrób Immutable
+            </a>
+        </li>
+        <li>
+            <a href="https://sarvendev.com/2017/10/kompozycja-ponad-dziedziczenie/" target="_blank">
+                Zamiast dziediczenia użyj kompozycji
+            </a>
+        </li>
+        <li>
+            <a href="https://phpunit.de/" target="_blank">
+                Napisz testy jednostkowe przy pomocy PHPUnit
+            </a>
+        </li>
+        <li>
+            <a href="https://docs.docker.com/get-started/" target="_blank">
+                Użyj docker i docker-compose w celu "zadockeryzowania" aplikacji
+            </a>
+        </li>
+    </ul>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>L.p.</th>
-            <th>Opis</th>
-            <th>Waga</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr><td>1.</td><td>Uruchomienie kodu nie powoduje błędów na PHP 7.3 lub 7.4</td><td>Warunek konieczny</td><tr><tr><td>2.</td><td>Implementacja podstawego interfejsu biblioteki</td><td>Warunek konieczny</td><tr><tr><td>3.</td><td>Formatowanie kodu zgodne z PSR-12</td><td>Mile widziane</td><tr><tr><td>4.</td><td>Ogólna czytelnośc i ekspresyjność kodu</td><td>80%</td><tr><tr><td>5.</td><td>Przestrzeganie zasady DRY (szczególnie DateType)</td><td>80%</td><tr><tr><td>6.</td><td>Przestrzeganie zasad SOLID</td><td>Exra</td><tr><tr><td>7.</td><td>Przestrzeganie zasad enkapsulacji, ukrywanie szczegółów implementacji</td><td>Mile widziane</td><tr><tr><td>8.</td><td>W miejsce zwykłego dziedziczenia, użyte dziedzicenie przez kompozycję</td><td>Extra</td><tr><tr><td>9.</td><td>Biblioteka korzysta tylko i wyłącznie z obiektów Immutable</td><td>Extra</td><tr><tr><td>10.</td><td>Użycie silnego typowania, wszędzie gdzie być powinno</td><td>80%</td><tr><tr><td>11.</td><td>MoneyType - poprawnie działająca waluta PLN i USD</td><td>100%</td><tr><tr><td>12.</td><td>MoneyType - poprawnie działająca waluta BHD</td><td>70%</td><tr><tr><td>13.</td><td>Render - brakujące komórki w wierszach nie powodują błędów</td><td>70%</td><tr><tr><td>14.</td><td>Render - losowe ciągi znaków w komórkach nie powodują błędów</td><td>70%</td><tr><tr><td>15.</td><td>Render - losowe typy danych w komórkach nie powodują błędów</td><td>70%</td><tr><tr><td>16.</td><td>Render - mimo braku błędów, użytkownik widzi gdzie zostały wprowadzone błędne dane</td><td>60%</td><tr><tr><td>17.</td><td>Działająca pagniacja łącznie z sortowaniem</td><td>100%</td><tr><tr><td>18.</td><td>Ikona sortowania w nagłówku pokazująca kierunek sortowania</td><td>80%</td><tr><tr><td>19.</td><td>Klikanie w kolumny powoduje sortowanie naprzemienie:  ASC / DESC / wyłączenie sortowania</td><td>80%</td><tr><tr><td>20.</td><td>Sortowanie uwzględa różne mechanizmy sortowania w zależności od typu danych</td><td>50%</td><tr><tr><td>21.</td><td>Paginacja - obsłużenie sytuacji, w której użytkownik chciałby wyrenderować stronę która jest poza dostępnym zakresem</td><td>50%</td><tr><tr><td>22.</td><td>Użycie nonbraking space w formatowaniu typów</td><td>30%</td><tr><tr><td>23.</td><td>Testy jednostkowe</td><td>Mile widziane</td><tr><tr><td>24.</td><td>Docker + docker-compose.yaml</td><td>Mile widziane</td><tr><tr><td>25.</td><td>Projekt wrzucony na serwer, podpięty do domeny</td><td>Extra</td><tr>        </tbody>
-    </table>
+    <h3>Założenia projektu</h3>
+
+    <ul>
+        <li>
+            MoneyType ma wspierać waluty: PLN, USD i BHD
+        </li>
+        <li>
+            Przekazanie błędnych danych wejściowych nie może powodować błędów PHP.
+        </li>
+        <li>
+            Użytkownik musi zostać poinformowany, o tym, że DataGrid otrzymał błędne dane.
+        </li>
+        <li>
+            Nagłówki kolumn są klikalne. Kliknięcie nagłówka ma spowodować posortowanie wierszy rosnąco.
+            Kolejne kliknięcia zmieniają sortowanie na malejące, a następne wyłączają sortowanie.
+        </li>
+        <li>
+            Jeżeli jest użyte sortowanie na jakiejś kolumnie, to obok nazwy kolumny powinna pokazać się jedna z ikon:
+            <svg class="bi bi-arrow-down-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.646 7.646a.5.5 0 0 1 .708 0L8 10.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z"/>
+                <path fill-rule="evenodd" d="M8 4.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+            <svg class="bi bi-arrow-up-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5z"/>
+                <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8 5.707 5.354 8.354a.5.5 0 1 1-.708-.708l3-3z"/>
+            </svg>
+        </li>
+        <li>
+            Sortowanie ma uwzględniać inną metodę sortowania dla danych liczbowych, a inną dla ciągów znaków.
+        </li>
+        <li>
+            Ilośc wyświetlanych wierszy jest ograniczona do 9 na stronę.
+        </li>
+        <li>
+            Pod tabelą renderuje się paginacja. Klikanie w poszczególne strony pagniacji, powduje przejścia na te strony.
+        </li>
+        <li>
+            Sformatowane dane, powinny używać zamiast zwykłej spacji - non breaking space.
+        </li>
+        <li>
+            Szczególną uwagę należy zwrócić na poprawność działania aplikacji gdy zachodzi połączenie sortowania i pagniacji.
+        </li>
+    </ul>
+
+    <h3>Zasady dotyczące kodu</h3>
+
+    <ul>
+        <li>
+            Kod ma być czytelny i ekspresyjny.
+        </li>
+        <li>
+            Silne typowanie powinno być użyte wszędzie gdzie to możliwe.
+        </li>
+        <li>
+            Kod ma być zgodny z PSR-12 i przestrzegać zasad SOLID i DRY.
+        </li>
+        <li>
+            Tam gdzie jest podejrzenie wystąpienia błędu - powinna zostać zrobiona ich obsługa.
+        </li>
+    </ul>
 
     <h3>Jak powinno wyglądać ukończone zadanie?</h3>
 
     <p>
         Kod źródłowy powinien zostać wrzucony na repozytorium GitHub. Oprócz kodu biblioteki, musi zostać dołączony
-        plik JSON z danymi, oraz index.php renderujący w pełni działający przykład z końca tego pliku. Kod
-        powinien używać autoloadera z composera.
+        plik JSON z danymi, oraz index.php renderujący w pełni działający przykład. Kod powinien używać autoloadera z composera.
     </p>
 
     <p>
-        Jeżeli istnieje taka możliwość, to kod dodatkowo powinien zostać wrzucony na serwer, a adres serwera
-        przesłany razem z linkiem do repozytorium.
+        Jeżeli istnieje taka możliwość, to kod może zostać wrzucony dodatkowo na jakiś serwer.
     </p>
 
-    <h2>1. Podstawowy interfejs biblioteki</h2>
+    <h2>Podstawowy interfejs biblioteki</h2>
 
     <pre>
 <code class="php">
@@ -169,7 +255,7 @@ interface DataGrid
 </code>
     </pre>
 
-    <h2>2. Typy danych</h2>
+    <h2>Typy danych</h2>
 
     <p>
         Każdy z podanych typów danych implementuje interfejs <code>DataType</code>. Wszystkie dodatkowe ustawienia,
@@ -215,7 +301,7 @@ interface DataGrid
         <code>RawType</code> - Renderuje dokładnie ten sam ciąg znaków co w otrzymanych danych. Służy do wyświetlania HTML.
     </p>
 
-    <h2>3. Przykład</h2>
+    <h2>Przykład użycia</h2>
 
     <p>
         Data set, który ma zostać wykorzystany w przykładzie do pobrania
@@ -251,7 +337,7 @@ echo $dataGrid->withConfig($config)->render($rows, $state);
         Efekt widoczny dla użytkownika:
     </p>
 
-    <div class="col-sm-12">
+    <div class="example">
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -269,19 +355,123 @@ echo $dataGrid->withConfig($config)->render($rows, $state);
         </table>
 
         <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+    </div>
+
+    <h2>Obsługa błędów</h2>
+
+    <h4>Błąd krytyczny</h4>
+
+    <p>Występje jeżeli dojdzie do jakiegoś błędu, który uniemożliwi działanie biblioteki.</p>
+
+    <div class="example">
+        <div class="alert alert-danger" role="alert">
+            <svg class="bi bi-exclamation-triangle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+            </svg>
+            Bład krytyczny - ... szczegóły błędu ...
+        </div>
+    </div>
+
+    <h4>Błąd wiersza</h4>
+
+    <p>Występuje kiedy nie ma możliwości wyrenderowania żadnego pola w wierszu.</p>
+
+    <div class="example">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Company</th>
+                <th>Balance</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td style='text-align: right;'>1</td><td>Celina Collins</td><td style='text-align: right;'>23</td><td>NETBOOK</td><td style='text-align: right;'>3 055,76 USD</td><td>+1 (855) 514-2949</td><td>celinacollins@netbook.com</td></tr>            <tr>
+                <td colspan="100%" class="text-danger">
+                    <svg class="bi bi-exclamation-triangle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                    Błąd wiersza - w tym wierszu znajdują się błędne dane
+                </td>
+            </tr>
+            <tr><td style='text-align: right;'>3</td><td>Augusta Mccarty</td><td style='text-align: right;'>23</td><td>SONGBIRD</td><td style='text-align: right;'>3 266,87 USD</td><td>+1 (987) 470-3284</td><td>augustamccarty@songbird.com</td></tr>            <tr><td style='text-align: right;'>4</td><td>Beasley Rocha</td><td style='text-align: right;'>30</td><td>MARKETOID</td><td style='text-align: right;'>2 670,30 USD</td><td>+1 (845) 429-2442</td><td>beasleyrocha@marketoid.com</td></tr>            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+    </div>
+
+    <h4>Błąd komórki</h4>
+
+    <p>
+        Najbardziej pospolity błąd. Występuje jeżeli na podstawie danych przesłanych w wierszu,
+        nie da się wyrenderować którejś z komórek.
+    </p>
+
+    <div class="example">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Company</th>
+                <th>Balance</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td style='text-align: right;'>1</td><td>Celina Collins</td><td style='text-align: right;'>23</td><td>NETBOOK</td><td style='text-align: right;'>3 055,76 USD</td><td>+1 (855) 514-2949</td><td>celinacollins@netbook.com</td></tr>                        <tr><td style='text-align: right;'>2</td><td>Brock Adams</td><td style='text-align: right;'>
+                    <svg class="bi bi-exclamation-triangle-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 5zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                </td><td>EWAVES</td><td style='text-align: right;'>3 324,40 USD</td><td>+1 (988) 489-3691</td><td>brockadams@ewaves.com</td></tr>            <tr><td style='text-align: right;'>3</td><td>Augusta Mccarty</td><td style='text-align: right;'>23</td><td>SONGBIRD</td><td style='text-align: right;'>3 266,87 USD</td><td>+1 (987) 470-3284</td><td>augustamccarty@songbird.com</td></tr>            <tr><td style='text-align: right;'>4</td><td>Beasley Rocha</td><td style='text-align: right;'>30</td><td>MARKETOID</td><td style='text-align: right;'>2 670,30 USD</td><td>+1 (845) 429-2442</td><td>beasleyrocha@marketoid.com</td></tr>            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
     </div>
 
     <script>hljs.initHighlightingOnLoad();</script>
